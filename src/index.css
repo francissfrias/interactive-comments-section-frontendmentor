@@ -1,0 +1,48 @@
+@import 'tailwindcss';
+
+:root {
+  --background: hsl(225, 29%, 97%);
+  --foreground: hsl(212, 24%, 26%);
+  --color-primary-purple: hsl(238, 40%, 52%);
+  --color-primary-pink: hsl(358, 79%, 66%);
+  --color-primary-purple: hsl(239, 57%, 85%);
+  --color-primary-pink: hsl(357, 100%, 86%);
+  --color-neutral-grey-dark: hsl(212, 24%, 26%);
+  --color-neutral-grey-medium: hsl(211, 10%, 45%);
+  --color-neutral-grey-light: hsl(223, 19%, 93%);
+  --color-neutral-grey-xtralight: hsl(228, 33%, 97%);
+  --color-neutral-white: hsl(0, 100%, 100%);
+
+  --font-family: 'Rubik', sans-serif;
+  --font-base: 16px;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary-purple: var(--color-primary-purple);
+  --color-primary-pink: var(--color-primary-pink);
+  --color-neutral-grey-dark: var(--color-neutral-grey-dark);
+  --color-neutral-grey-medium: var(--color-neutral-grey-medium);
+  --color-neutral-grey-light: var(--color-neutral-grey-light);
+  --color-neutral-grey-xtralight: var(--color-neutral-grey-xtralight);
+  --color-neutral-white: var(--color-neutral-white);
+
+  --font-family: var(--font-family);
+  --text-base: var(--font-base);
+
+  --font-weight-normal: var(--font-weight-normal);
+  --font-weight-medium: var(--font-weight-medium);
+  --font-weight-bold: var(--font-weight-bold);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground text-base font-normal font-family;
+  }
+}
