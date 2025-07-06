@@ -5,7 +5,7 @@
   --foreground: hsl(212, 24%, 26%);
   --color-primary-purple: hsl(238, 40%, 52%);
   --color-primary-pink: hsl(358, 79%, 66%);
-  --color-primary-purple: hsl(239, 57%, 85%);
+  --color-primary-purple-light: hsl(239, 57%, 85%);
   --color-primary-pink: hsl(357, 100%, 86%);
   --color-neutral-grey-dark: hsl(212, 24%, 26%);
   --color-neutral-grey-medium: hsl(211, 10%, 45%);
@@ -26,6 +26,7 @@
   --color-foreground: var(--foreground);
 
   --color-primary-purple: var(--color-primary-purple);
+  --color-primary-purple-light: var(--color-primary-purple-light);
   --color-primary-pink: var(--color-primary-pink);
   --color-neutral-grey-dark: var(--color-neutral-grey-dark);
   --color-neutral-grey-medium: var(--color-neutral-grey-medium);
