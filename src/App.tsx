@@ -31,8 +31,8 @@ function App() {
                 {items.content}
               </p>
               <div className='flex items-center justify-between'>
-                <div className='flex items-center justify-center bg-neutral-grey-xtralight rounded-lg py-2 '>
-                  <button className='px-3'>
+                <div className='flex items-center justify-center bg-neutral-grey-xtralight rounded-lg py-2  '>
+                  <button className='px-4'>
                     <img
                       src={getImageUrl('./assets/icon-plus.svg')}
                       alt='plus icon'
@@ -41,7 +41,7 @@ function App() {
                   <span className='font-bold text-primary-purple'>
                     {items.score}
                   </span>
-                  <button className='px-3'>
+                  <button className='px-4'>
                     <img
                       src={getImageUrl('./assets/icon-minus.svg')}
                       alt='minus icon'
@@ -66,7 +66,7 @@ function App() {
               </div>
             </div>
             {items.replies && items.replies.length > 0 && (
-              <div className='flex flex-col gap-4 border-l-2 border-neutral-grey-light mt-6  pl-4 py-0  '>
+              <div className='flex flex-col gap-4 border-l-2 border-neutral-grey-light mt-4  pl-4 py-0  '>
                 {items.replies.map((replyItems) => {
                   return (
                     <div
@@ -82,14 +82,26 @@ function App() {
                         <span className='font-bold '>
                           {replyItems.user.username}
                         </span>
-                        <span className='font-bold text-neutral-grey-light'>
+                        {replyItems.user.username ===
+                          dataWithTs.currentUser.username && (
+                          <span className='bg-primary-purple text-white  px-2 -ml-2 text-center rounded-sm font-bold'>
+                            you
+                          </span>
+                        )}
+                        <span className='font-medium text-neutral-grey-medium '>
                           {replyItems.createdAt}
                         </span>
                       </div>
-                      <p>{replyItems.content}</p>
+                      <p className='text-neutral-grey-medium font-medium '>
+                        <span className='text-primary-purple font-bold'>
+                          {replyItems.user.username &&
+                            `@${replyItems.user.username}`}
+                        </span>{' '}
+                        {replyItems.content}
+                      </p>
                       <div className='flex items-center justify-between'>
                         <div className='flex items-center justify-center bg-neutral-grey-xtralight rounded-lg py-2 '>
-                          <button className='px-3'>
+                          <button className='px-4'>
                             <img
                               src={getImageUrl('./assets/icon-plus.svg')}
                               alt='plus icon'
@@ -98,21 +110,64 @@ function App() {
                           <span className='font-bold text-primary-purple'>
                             {replyItems.score}
                           </span>
-                          <button className='px-3'>
+                          <button className='px-4'>
                             <img
                               src={getImageUrl('./assets/icon-minus.svg')}
                               alt='minus icon'
                             />
                           </button>
                         </div>
-                        <button className=''>
-                          <img
-                            className='h-4 inline-block mr-2'
-                            src={getImageUrl('./assets/icon-reply.svg')}
-                            alt='reply icon'
-                          />
-                          reply
-                        </button>
+                        {replyItems.user.username ===
+                        dataWithTs.currentUser.username ? (
+                          <div className='flex items-center '>
+                            <button className='flex items-center gap-2 h-lh hover:bg-primary-purple-light active:bg-primary-purple transition-all duration-200 ease-in-out rounded-lg px-2 py-4  group'>
+                              <svg
+                                width='14'
+                                height='13'
+                                xmlns='http://www.w3.org/2000/svg'
+                              >
+                                <path
+                                  className='fill-primary-purple group-hover:fill-white group-active:fill-white transition-all duration-200 ease-in-out'
+                                  d='M.227 4.316 5.04.16a.657.657 0 0 1 1.085.497v2.189c4.392.05 7.875.93 7.875 5.093 0 1.68-1.082 3.344-2.279 4.214-.373.272-.905-.07-.767-.51 1.24-3.964-.588-5.017-4.829-5.078v2.404c0 .566-.664.86-1.085.496L.227 5.31a.657.657 0 0 1 0-.993Z'
+                                />
+                              </svg>
+                              <span className='text-primary-purple font-bold group-hover:text-white group-active:text-white transition-all duration-200 ease-in-out'>
+                                Reply
+                              </span>
+                            </button>
+                            <button className='flex items-center gap-2 h-lh hover:bg-primary-purple-light active:bg-primary-purple transition-all duration-200 ease-in-out rounded-lg px-2 py-4  group'>
+                              <svg
+                                width='14'
+                                height='13'
+                                xmlns='http://www.w3.org/2000/svg'
+                              >
+                                <path
+                                  className='fill-primary-purple group-hover:fill-white group-active:fill-white transition-all duration-200 ease-in-out'
+                                  d='M.227 4.316 5.04.16a.657.657 0 0 1 1.085.497v2.189c4.392.05 7.875.93 7.875 5.093 0 1.68-1.082 3.344-2.279 4.214-.373.272-.905-.07-.767-.51 1.24-3.964-.588-5.017-4.829-5.078v2.404c0 .566-.664.86-1.085.496L.227 5.31a.657.657 0 0 1 0-.993Z'
+                                />
+                              </svg>
+                              <span className='text-primary-purple font-bold group-hover:text-white group-active:text-white transition-all duration-200 ease-in-out'>
+                                Reply
+                              </span>
+                            </button>
+                          </div>
+                        ) : (
+                          <button className='flex items-center gap-2 h-lh hover:bg-primary-purple-light active:bg-primary-purple transition-all duration-200 ease-in-out rounded-lg p-4 group'>
+                            <svg
+                              width='14'
+                              height='13'
+                              xmlns='http://www.w3.org/2000/svg'
+                            >
+                              <path
+                                className='fill-primary-purple group-hover:fill-white group-active:fill-white transition-all duration-200 ease-in-out'
+                                d='M.227 4.316 5.04.16a.657.657 0 0 1 1.085.497v2.189c4.392.05 7.875.93 7.875 5.093 0 1.68-1.082 3.344-2.279 4.214-.373.272-.905-.07-.767-.51 1.24-3.964-.588-5.017-4.829-5.078v2.404c0 .566-.664.86-1.085.496L.227 5.31a.657.657 0 0 1 0-.993Z'
+                              />
+                            </svg>
+                            <span className='text-primary-purple font-bold group-hover:text-white group-active:text-white transition-all duration-200 ease-in-out'>
+                              Reply
+                            </span>
+                          </button>
+                        )}
                       </div>
                     </div>
                   );
